@@ -91,13 +91,17 @@ public class GameManager : MonoBehaviour
             /**
              * run the dog ending attack animation if the player is not running AND the game has started AND the dog is within 5m
              */
-            if(!player.GetComponentInChildren<Animator>().GetBool("isRunning") && dogDistanceCount < 5)
+            if(!player.GetComponentInChildren<Animator>().GetBool("isRunning") && dogDistanceCount <= 5)
             {
                 if (player.gameStart)
                 {
-                    dog.GetComponentInChildren<MeshRenderer>().enabled = false;
+
                     //runs animation 
                     dog.GetComponent<Animator>().SetBool("dogIsClose", true);
+
+                    //This is where the endding scene should be called!!
+                    
+                    //-------------------------------------------------------------------------------------------------------------------------GAME OVER
                 }
                 dog.GetComponentInChildren<MeshRenderer>().enabled = true;
             }
